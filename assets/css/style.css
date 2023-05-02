@@ -1,0 +1,235 @@
+@font-face {
+    font-family: HankenGrotesk;
+    src: url('../fonts/HankenGrotesk-VariableFont_wght.ttf');
+}
+
+/* 
+================================================================
+  Global styles
+================================================================
+*/
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: HankenGrotesk, Arial, Helvetica, sans-serif;
+    /* setting base font size to 18px according to 
+       style-guide.md
+    */
+    font-size: 1.125rem; 
+    font-weight: 500;
+    overflow: auto;
+}
+
+/* 
+================================================================
+  Header styles
+================================================================
+*/
+
+header {
+    width: 100%;
+    background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    color: hsl(0, 0%, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 0 2em 2em;
+    padding: 1em;
+}
+
+.header__title {
+    font-size: 1em;
+    margin-top: 0;
+    opacity: 0.7;
+}
+
+.score__container {
+    background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+    padding: 1em;
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+}
+
+#score-point {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.score__container::after {
+    content: 'of 100';
+    font-weight: 700;
+    opacity: 0.5;
+    display: block;
+}
+
+.header__summary {
+    font-size: 0.875em;
+    margin-top: 0;
+    width: 80%;
+    opacity: 0.7;
+}
+
+/* 
+================================================================
+  Main styles
+================================================================
+*/
+
+main {
+    padding: 0.5em 1em;
+}
+
+.summary__title {
+    text-align: left;
+    font-weight: bold;
+}
+
+.results__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.property__details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.825em;
+    padding-inline: 0.5em;
+    border-radius: 0.5em;
+}
+
+#reaction-section {
+    background-color: hsla(0, 100%, 67%, 0.1);
+}
+
+#memory-section {
+    background-color: hsla(39, 100%, 56%, 0.1);
+}
+
+#verbal-section {
+    background-color: hsla(166, 100%, 37%, 0.1);
+}
+
+#visual-section {
+    background-color: hsla(234, 85%, 45%, 0.1);
+}
+
+.property {
+    display: flex;
+    align-items: center;
+}
+
+.property__score::after {
+    content: ' / 100';
+    font-weight: normal;
+    opacity: 0.7;
+}
+
+.property__name {
+    display: inline-block;
+    padding-inline: 0.5em;
+}
+
+#reaction {
+    color: hsl(0, 100%, 67%);
+}
+
+#memory {
+    color: hsl(39, 100%, 56%);
+}
+
+#verbal {
+    color: hsl(166, 100%, 37%);
+}
+
+#visual {
+    color: hsl(234, 85%, 45%);
+}
+
+button {
+    color: hsl(0, 0%, 100%);
+    font-weight: bold;
+    font-size: 1.25rem;
+    width: 95%;
+    height: 3em;
+    border: none;
+    border-radius: 1.5em;
+    background: hsl(224, 30%, 27%);
+}
+
+
+button:hover,
+button:active {
+    cursor: pointer;
+    background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    /*
+    Q: How to make the transition smooth? (e.g. 0.5s)
+    */
+}
+
+/* 
+================================================================
+  Footer styles
+================================================================
+*/
+
+footer {
+    width: 100%;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* 
+================================================================
+  Media Queries
+================================================================
+*/
+
+@media (min-height: 812px) {
+    footer {
+        position: absolute;
+        bottom: 5px;
+    }   
+}
+
+@media (min-width: 800px) or (min-height: 900px) {
+    .header__title {
+        font-size: 1.25em;
+    }
+
+    .header__summary {
+        font-size: 1em;
+        margin-top: 0;
+        width: 90%;
+        opacity: 0.7;
+    }
+
+    main {
+        padding: .875em 1em;
+    }
+
+    .property__details {
+        margin-bottom: 1.25em;
+        padding-inline: 1em;
+    }
+
+    .summary__title {
+        font-size: 1.5em;
+    }
+}
