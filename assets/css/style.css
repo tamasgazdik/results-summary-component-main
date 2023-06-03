@@ -26,9 +26,9 @@
 
     --black: hsl(0, 0%, 0%);
     --white: hsl(0, 0%, 100%);
-    --paleblue: hsl(221, 100%, 96%);
-    --lightlavender: hsl(241, 100%, 89%);
-    --darkgrayblue: hsl(224, 30%, 27%);
+    --pale-blue: hsl(221, 100%, 96%);
+    --light-lavender: hsl(241, 100%, 89%);
+    --dark-gray-blue: hsl(224, 30%, 27%);
 
     --border-radius: 3rem;
 
@@ -241,7 +241,7 @@ button {
     font-weight: var(--fw-700);
     height: 4.5rem;
     color: var(--white);
-    background-color: var(--darkgrayblue);
+    background-color: var(--dark-gray-blue);
     border: none;
     border-radius: 100vw;
 }
@@ -284,7 +284,7 @@ footer {
         display: grid;
         grid-template-rows: auto min-content auto min-content;
         justify-content: center;
-        background-color: var(--paleblue);
+        background-color: var(--pale-blue);
     }
 
     main {
