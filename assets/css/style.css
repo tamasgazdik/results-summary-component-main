@@ -1,195 +1,261 @@
 @font-face {
     font-family: HankenGrotesk;
+    /* for performance reasons*/
+    font-display: swap;
+    /* this way we make all weights available */
+    font-weight: 100 900;
     src: url('../fonts/HankenGrotesk-VariableFont_wght.ttf');
 }
 
 /* 
 ================================================================
-  Global styles
+  Global variables
+================================================================
+*/
+
+:root {
+    --light-red: 0, 100%, 67%;
+    --orangey-yellow: 39, 100%, 56%;
+    --green-teal: 166, 100%, 37%;
+    --cobalt-blue: 234, 85%, 45%;
+    --light-slate-blue: hsl(252, 100%, 67%);
+    --light-royal-blue: hsl(241, 81%, 54%);
+
+    --violet-blue: hsla(256, 72%, 46%, 1);
+    --persian-blue: hsla(241, 72%, 46%, 0);
+
+    --black: hsl(0, 0%, 0%);
+    --white: hsl(0, 0%, 100%);
+    --paleblue: hsl(221, 100%, 96%);
+    --lightlavender: hsl(241, 100%, 89%);
+    --darkgrayblue: hsl(224, 30%, 27%);
+
+    --border-radius: 3rem;
+
+    --opacity: 0.6;
+
+    --fs-18: 1.8rem;
+
+    --fw-500: 500;
+    --fw-700: 700;
+    --fw-800: 800;
+}
+
+/* 
+================================================================
+  Global styles and resets
 ================================================================
 */
 
 *,
-*::after,
-*::before {
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-body {
+* {
     margin: 0;
     padding: 0;
+    font: inherit;
+}
+
+html {
+    color-scheme: dark light;
+    font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     min-height: 100vh;
-    text-align: center;
+    min-height: 100dvh;
     font-family: HankenGrotesk, Arial, Helvetica, sans-serif;
-    /* setting base font size to 18px according to 
-       style-guide.md
-    */
-    font-size: 1.125rem;
-    font-weight: 500;
-    overflow: auto;
+    background-color: transparent;
+}
+
+svg {
+    display: block;
+    max-width: 100%;
 }
 
 /* 
 ================================================================
-  Header styles
+  Utility classes
 ================================================================
 */
 
-header {
-    width: 100%;
-    background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
-    color: hsl(0, 0%, 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 0 0 2em 2em;
-    padding: 1em;
+.fs-18 {
+    font-size: var(--fs-18);
 }
 
-.header__title {
-    font-size: 1em;
-    margin-top: 0;
-    opacity: 0.5;
+.fw-500 {
+    font-weight: var(--fw-500);
 }
 
-.score__container {
-    background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
-    padding: 1em;
-    width: 8em;
-    height: 8em;
-    border-radius: 50%;
+.fw-700 {
+    font-weight: var(--fw-700);
 }
 
-#score-point {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
+.fw-800 {
+    font-weight: var(--fw-800);
 }
 
-.score__container::after {
-    content: 'of 100';
-    font-weight: 700;
-    opacity: 0.4;
-    display: block;
-}
-
-h2 {
-    margin-bottom: 0.5em;
-}
-
-.header__summary {
-    font-size: 0.875em;
-    margin-top: 0;
-    width: 80%;
-    opacity: 0.7;
+.opaque {
+    opacity: var(--opacity);
 }
 
 /* 
 ================================================================
-  Main styles
+  main style
 ================================================================
 */
 
 main {
-    padding-inline: 1em;
+    display: grid;
+    place-content: center;
+    max-width: 65rem;
+    background-color: var(--white);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    overflow: hidden;
 }
 
+/* 
+================================================================
+  'Your results' styles
+================================================================
+*/
+
+.results__summary {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 3rem 4.5rem 4rem;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    background-image: linear-gradient(
+        var(--light-slate-blue),
+        var(--light-royal-blue));
+    color: var(--white);
+}
+
+.header__title,
 .summary__title {
-    text-align: left;
-    font-weight: bold;
-    padding-left: 0.5em;
+    font-size: 2rem;
+}
+
+.score__container {
+    width: 16rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 100vw;
+    margin-inline: auto;
+    display: grid;
+    place-content: center;
+    background-image: linear-gradient(
+        var(--violet-blue),
+        var(--persian-blue));
+}
+
+.score__overall {
+    font-size: 6rem;
+}
+
+.score__judgment {
+    font-size: 3rem;
+}
+
+/* 
+================================================================
+  'Summary' styles
+================================================================
+*/
+
+.results__detailed {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
 .results__container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0.5em;
+    display: grid;
+    gap: 1.5rem;
 }
 
 .property__details {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.825em;
-    padding-inline: 0.5em;
-    border-radius: 0.5em;
+    padding: 1.5rem;
+    border-radius: 1rem;
 }
 
-#reaction-section {
-    background-color: hsla(0, 100%, 67%, 0.1);
-}
-
-#memory-section {
-    background-color: hsla(39, 100%, 56%, 0.1);
-}
-
-#verbal-section {
-    background-color: hsla(166, 100%, 37%, 0.1);
-}
-
-#visual-section {
-    background-color: hsla(234, 85%, 45%, 0.1);
-}
-
-.property {
+.property__container {
     display: flex;
     align-items: center;
 }
 
+.property__name {
+    padding-inline: 0.5rem;
+    font-weight: var(--fw-500);
+}
+
 .property__score {
-    margin-block: 0.75em;
+    color: var(--black);
+}
+
+.property__score b {
+    font-weight: var(--fw-500);
 }
 
 .property__score::after {
     content: ' / 100';
-    font-weight: normal;
-    opacity: 0.7;
+    opacity: var(--opacity);
 }
 
-.property__name {
-    display: inline-block;
-    padding-inline: 0.5em;
+/* property specific design */
+
+.reaction__section {
+    color: hsl(var(--light-red));
+    background-color: hsla(var(--light-red), 0.1);
 }
 
-#reaction {
-    color: hsl(0, 100%, 67%);
+.memory__section {
+    color: hsl(var(--orangey-yellow));
+    background-color: hsla(var(--orangey-yellow), 0.1);
 }
 
-#memory {
-    color: hsl(39, 100%, 56%);
+.verbal__section {
+    color: hsl(var(--green-teal));
+    background-color: hsla(var(--green-teal), 0.1);
 }
 
-#verbal {
-    color: hsl(166, 100%, 37%);
-}
-
-#visual {
-    color: hsl(234, 85%, 45%);
+.visual__section {
+    color: hsl(var(--cobalt-blue));
+    background-color: hsla(var(--cobalt-blue), 0.1);
 }
 
 button {
-    color: hsl(0, 0%, 100%);
-    font-weight: bold;
-    font-size: 1.25rem;
-    width: 95%;
-    height: 3em;
+    font-size: 1.5rem;
+    font-weight: var(--fw-700);
+    height: 4.5rem;
+    color: var(--white);
+    background-color: var(--darkgrayblue);
     border: none;
-    border-radius: 1.5em;
-    background: hsl(224, 30%, 27%);
+    border-radius: 100vw;
 }
 
-
 button:hover,
-button:active {
+button:focus-visible {
+    background-image: linear-gradient(
+        var(--light-slate-blue),
+        var(--light-royal-blue));
     cursor: pointer;
-    background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
-    /*
-    Q: How to make the transition smooth? (e.g. 0.5s)
-    */
 }
 
 /* 
 ================================================================
-  Footer styles
+  Footer design
 ================================================================
 */
 
@@ -208,92 +274,42 @@ footer {
 
 /* 
 ================================================================
-  Media Queries
+  Media query for desktop design
 ================================================================
 */
 
-@media (min-height: 812px) {
-    footer {
-        position: absolute;
-        bottom: 5px;
-    }
-}
-
-@media (min-width: 800px) or (min-height: 900px) {
-    .header__title {
-        font-size: 1.25em;
-    }
-
-    .header__summary {
-        font-size: 1em;
-        margin-top: 0;
-        width: 90%;
-        opacity: 0.7;
-    }
-
-    main {
-        padding: .875em 1em;
-    }
-
-    .property__details {
-        margin-bottom: 1.25em;
-        padding-inline: 1em;
-    }
-
-    .summary__title {
-        font-size: 1.5em;
-    }
-}
-
-@media (min-width: 1440px) {
+@media (min-width: 35rem) {
     body {
-        background-color: hsl(221, 100%, 96%);
-        padding: 10% 25%;
-        display: flex;
+        display: grid;
+        grid-template-rows: auto min-content auto min-content;
         justify-content: center;
-        align-items: center;
-    }
-
-    header {
-        width: 40%;
-        padding: 2.25em 1.75em;
-        border-radius: 2em;
-    }
-
-    h2 {
-        /* margin-bottom: revert; */
-    }
-
-    .header__summary {
-        font-size: 0.875em;
+        background-color: var(--paleblue);
     }
 
     main {
-        background-color: hsl(0, 0%, 100%);
-        width: 45%;
-        padding: 1.5em 1.125em 1.5em 2.625em;
-        position: relative;
-        transform: translate(-1.75em);
-        z-index: -1;
-        border-top-right-radius: 2em;
-        border-bottom-right-radius: 2em;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+        grid-template-columns: 1fr 1fr;
+        border-radius: var(--border-radius);
+        grid-row: 2 / 3;
     }
 
-    .summary__title {
-        font-size: 1.125rem;
+    .score__container {
+        width: 18rem;
     }
 
-    .property__details {
-        margin-bottom: 0.825em;
+    .score__overall {
+        font-size: 7rem;
     }
 
-    button {
-        font-size: 1rem;
-        width: 90%;
-        height: 3em;
-        border: none;
-        border-radius: 100vw;
-        background: hsl(224, 30%, 27%);
+    .score__judgment {
+        font-size: 3rem;
+    }
+
+    .results__summary {
+        border-radius: var(--border-radius);
+        padding: 3rem 3rem 4rem;
+    }
+
+    footer {
+        grid-row: 4 / -1;
     }
 }

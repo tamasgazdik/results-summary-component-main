@@ -12,47 +12,62 @@
 </head>
 
 <body>
-  <header>
-    <h3 class="header__title">Your Result</h3>
-    <div class="score__container">
-      <p id="score-point">76</p>
-    </div>
-    <h2>Great</h2>
-    <p class="header__summary">You scored higher than 65% of the people who have taken these tests.</p>
-  </header>
   <main>
-    <p class="summary__title">Summary</p>
-    <div class="results__container">
-      <div id="reaction-section" class="property__details">
-        <div class="property">
-          <img src="assets/images/icon-reaction.svg" alt="Reaction icon">
-          <span id="reaction" class="property__name">Reaction</span>
-        </div>
-        <p class="property__score"><b>80</b></p>
+
+    <article aria-labelledby="your-result-header" class="results__summary">
+      <h1 id="your-result-header" class="header__title opaque fw-700" tabindex="0">Your Result</h1>
+      
+      <div class="score__container">
+        <p class="score__overall fw-800" aria-label="Overall score" tabindex="0">76</p>
+        <p id="of-100" class="fs-18 opaque fw-500" aria-labelledby="of-100">of 100</p>
       </div>
-      <div id="memory-section" class="property__details">
-        <div class="property">
-          <img src="assets/images/icon-memory.svg" alt="Memory icon">
-          <span id="memory" class="property__name">Memory</span>
-        </div>
-        <p class="property__score"><b>92</b></p>
+
+      <p class="score__judgment fw-700" aria-label="Judgment of score">Great</p>
+      
+      <p class="header__summary fs-18 opaque fw-500" aria-label="Your score compared to others">You scored higher than 65% of the people who
+        have taken these tests.</p>
+    </article>
+
+    
+    <article aria-labelledby="summary-title" class="results__detailed fw-500">
+      <h2 id="summary-title" class="summary__title fw-700" tabindex="0">Summary</h2>  
+      
+      <div class="results__container fs-18">
+        <section class="property__details reaction__section" aria-labelledby="reaction">
+          <div class="property__container">
+            <img src="assets/images/icon-reaction.svg" alt="Reaction icon">
+            <span id="reaction" class="property__name reaction" tabindex="0">Reaction</span>
+          </div>
+          <p class="property__score" aria-label="Reaction score" tabindex="0"><b>80</b></p>
+        </section>
+
+        <section class="property__details memory__section" aria-labelledby="memory">
+          <div class="property__container">
+            <img src="assets/images/icon-memory.svg" alt="Memory icon">
+            <span id="memory" class="property__name memory" tabindex="0">Memory</span>
+          </div>
+          <p class="property__score" aria-label="Memory score" tabindex="0"><b>92</b></p>
+        </section>
+
+        <section class="property__details verbal__section" aria-labelledby="verbal">
+          <div class="property__container">
+            <img src="assets/images/icon-verbal.svg" alt="Verbal icon">
+            <span id="verbal" class="property__name verbal" tabindex="0">Verbal</span>
+          </div>
+          <p class="property__score" aria-label="Verbal score" tabindex="0"><b>61</b></p>
+        </section>
+        
+        <section class="property__details visual__section" aria-labelledby="visual">
+          <div class="property__container">
+            <img src="assets/images/icon-visual.svg" alt="Visual icon">
+            <span id="visual" class="property__name visual" tabindex="0">Visual</span>
+          </div>
+          <p class="property__score" aria-label="Visual score" tabindex="0"><b>72</b></p>
+        </section>
       </div>
-      <div id="verbal-section" class="property__details">
-        <div class="property">
-          <img src="assets/images/icon-verbal.svg" alt="Verbal icon">
-          <span id="verbal" class="property__name">Verbal</span>
-        </div>
-        <p class="property__score"><b>61</b></p>
-      </div>
-      <div id="visual-section" class="property__details">
-        <div class="property">
-          <img src="assets/images/icon-visual.svg" alt="Visual icon">
-          <span id="visual" class="property__name">Visual</span>
-        </div>
-        <p class="property__score"><b>72</b></p>
-      </div>
-    </div>
-    <button title="Continue">Continue</button>
+      
+      <button title="Continue">Continue</button>
+    </article>
   </main>
 
   <footer>
