@@ -71,6 +71,7 @@ body {
     min-height: 100vh;
     min-height: 100dvh;
     font-family: HankenGrotesk, Arial, Helvetica, sans-serif;
+    color: var(--black);
     background-color: transparent;
 }
 
