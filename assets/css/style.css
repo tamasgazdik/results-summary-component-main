@@ -72,7 +72,7 @@ body {
     min-height: 100dvh;
     font-family: HankenGrotesk, Arial, Helvetica, sans-serif;
     color: var(--black);
-    background-color: transparent;
+    background-color: var(--white);
 }
 
 svg {
