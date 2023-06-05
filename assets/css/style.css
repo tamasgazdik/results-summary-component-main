@@ -80,6 +80,20 @@ svg {
     max-width: 100%;
 }
 
+.screen__reader__only {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    /* display: none; */
+    /* Q: how to style stuff only for the screen reader?*/
+    /* https://www.nomensa.com/blog/how-improve-web-accessibility-hiding-elements */
+}
+
 /* 
 ================================================================
   Utility classes
@@ -134,9 +148,8 @@ main {
     gap: 2rem;
     padding: 3rem 4.5rem 4rem;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
-    background-image: linear-gradient(
-        var(--light-slate-blue),
-        var(--light-royal-blue));
+    background-image: linear-gradient(var(--light-slate-blue),
+            var(--light-royal-blue));
     color: var(--white);
 }
 
@@ -152,9 +165,8 @@ main {
     margin-inline: auto;
     display: grid;
     place-content: center;
-    background-image: linear-gradient(
-        var(--violet-blue),
-        var(--persian-blue));
+    background-image: linear-gradient(var(--violet-blue),
+            var(--persian-blue));
 }
 
 .score__overall {
@@ -248,9 +260,8 @@ button {
 
 button:hover,
 button:focus-visible {
-    background-image: linear-gradient(
-        var(--light-slate-blue),
-        var(--light-royal-blue));
+    background-image: linear-gradient(var(--light-slate-blue),
+            var(--light-royal-blue));
     cursor: pointer;
 }
 

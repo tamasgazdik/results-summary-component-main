@@ -12,60 +12,66 @@
 </head>
 
 <body>
-  <main>
+  <main id="content">
 
     <article aria-labelledby="your-result-header" class="results__summary">
       <h1 id="your-result-header" class="header__title opaque fw-700" tabindex="0">Your Result</h1>
-      
-      <div class="score__container">
-        <p class="score__overall fw-800" aria-label="Overall score" tabindex="0">76</p>
-        <p id="of-100" class="fs-18 opaque fw-500" aria-labelledby="of-100">of 100</p>
-      </div>
 
-      <p class="score__judgment fw-700" aria-label="Judgment of score">Great</p>
-      
-      <p class="header__summary fs-18 opaque fw-500" aria-label="Your score compared to others">You scored higher than 65% of the people who
+      <h2 class="screen__reader__only">Overall score</h2>
+      <p class="score__container" tabindex="0">
+        <span class="screen__reader__only">76 out of 100</span>
+        <span class="score__overall fw-800" aria-hidden="true">76</span>
+        <span id="of-100" class="fs-18 opaque fw-500" aria-hidden="true">of 100</span>
+      </p>
+
+      <span class="score__judgment fw-700" aria-label="Judgment of score">Great</span>
+
+      <p class="header__summary fs-18 opaque fw-500">You scored higher than 65% of the people who
         have taken these tests.</p>
     </article>
 
-    
+
     <article aria-labelledby="summary-title" class="results__detailed fw-500">
-      <h2 id="summary-title" class="summary__title fw-700" tabindex="0">Summary</h2>  
-      
+      <h2 id="summary-title" class="summary__title fw-700" tabindex="0">Summary</h2>
+
       <div class="results__container fs-18">
-        <section class="property__details reaction__section" aria-labelledby="reaction">
+        <section class="property__details reaction__section" tabindex="0" aria-describedby="reaction-score">
           <div class="property__container">
-            <img src="assets/images/icon-reaction.svg" alt="Reaction icon">
-            <span id="reaction" class="property__name reaction" tabindex="0">Reaction</span>
+            <img src="assets/images/icon-reaction.svg" alt="">
+            <h3 class="property__name reaction">Reaction</h3>
           </div>
-          <p class="property__score" aria-label="Reaction score" tabindex="0"><b>80</b></p>
+          <p id="reaction-score" class="screen__reader__only">80 out of 100</p>
+          <span class="property__score" aria-hidden="true"><b>80</b></span>
         </section>
 
-        <section class="property__details memory__section" aria-labelledby="memory">
+        <section class="property__details memory__section" tabindex="0" aria-describedby="memory-score">
           <div class="property__container">
-            <img src="assets/images/icon-memory.svg" alt="Memory icon">
-            <span id="memory" class="property__name memory" tabindex="0">Memory</span>
+            <img src="assets/images/icon-memory.svg" alt="">
+            <h3 class="property__name memory">Memory</h3>
           </div>
-          <p class="property__score" aria-label="Memory score" tabindex="0"><b>92</b></p>
+          <p id="memory-score" class="screen__reader__only">92 out of 100</p>
+          <span class="property__score" aria-hidden="true"><b>92</b></span>
         </section>
 
-        <section class="property__details verbal__section" aria-labelledby="verbal">
+        <section class="property__details verbal__section" tabindex="0" aria-describedby="verbal-score">
           <div class="property__container">
-            <img src="assets/images/icon-verbal.svg" alt="Verbal icon">
-            <span id="verbal" class="property__name verbal" tabindex="0">Verbal</span>
+            <img src="assets/images/icon-verbal.svg" alt="">
+            <h3 class="property__name verbal">Verbal</h3>
           </div>
-          <p class="property__score" aria-label="Verbal score" tabindex="0"><b>61</b></p>
+          <p id="verbal-score" class="screen__reader__only">61 out of 100</p>
+          <span class="property__score" aria-hidden="true"><b>61</b></span>
         </section>
-        
-        <section class="property__details visual__section" aria-labelledby="visual">
+
+        <section class="property__details visual__section" tabindex="0" aria-describedby="visual-score">
           <div class="property__container">
-            <img src="assets/images/icon-visual.svg" alt="Visual icon">
-            <span id="visual" class="property__name visual" tabindex="0">Visual</span>
+            <img src="assets/images/icon-visual.svg" alt="">
+            <h3 class="property__name visual">Visual</h3>
           </div>
-          <p class="property__score" aria-label="Visual score" tabindex="0"><b>72</b></p>
+          <p id="visual-score" class="screen__reader__only">72 out of 100</p>
+          <span class="property__score" aria-hidden="true"><b>72</b></span>
         </section>
       </div>
-      
+
       <button title="Continue">Continue</button>
     </article>
   </main>
